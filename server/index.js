@@ -24,12 +24,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Define CORS_ORIGIN directly here
-const CORS_ORIGIN = ["http://localhost:3000"];
+const CORS_ORIGIN = ["http://localhost:3000" ,"https://study-notion-blond.vercel.app/"];
 
 const corsOptions = {
   origin: CORS_ORIGIN,
   credentials: true,
-  maxAge: 14400,
+  
 };
 
 app.use(cors(corsOptions));
