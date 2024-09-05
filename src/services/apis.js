@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = "http://localhost:4000/api/v1";
 
 // AUTH ENDPOINTS
 export const endpoints = {
@@ -19,7 +19,7 @@ export const profileEndpoints = {
 
 // STUDENTS ENDPOINTS
 export const studentEndpoints = {
-  COURSE_PAYMENT_API: BASE_URL + "/payment/capturePayment",
+  COURSE_PAYMENT_API: BASE_URL + "/payment/capturePayment", 
   COURSE_VERIFY_API: BASE_URL + "/payment/verifyPayment",
   SEND_PAYMENT_SUCCESS_EMAIL_API: BASE_URL + "/payment/sendPaymentSuccessEmail",
 };

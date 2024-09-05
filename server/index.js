@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+const morgan=require("morgan")
+
 const userRoutes = require("./routes/User");
 const paymentRoutes = require("./routes/Payments");
 const profileRoutes = require("./routes/Profile");
@@ -22,6 +24,7 @@ database.connect();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("dev"))
 
 // Define CORS_ORIGIN directly here
 const CORS_ORIGIN = ["http://localhost:3000" ,"https://study-notion-blond.vercel.app/"];
