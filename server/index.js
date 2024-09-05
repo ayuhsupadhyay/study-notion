@@ -21,15 +21,18 @@ const PORT = process.env.PORT || 4000;
 database.connect();
 
 app.use(express.json());
-app.use(cookieParser()); 
+app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: JSON.parse(process.env.CORS_ORIGIN),
-    credentials: true,
-    maxAge: 14400,
-  })
-);
+// Define CORS_ORIGIN directly here
+const CORS_ORIGIN = ["http://localhost:3000"];
+
+const corsOptions = {
+  origin: CORS_ORIGIN,
+  credentials: true,
+  maxAge: 14400,
+};
+
+app.use(cors(corsOptions));
 
 app.use(
   fileUpload({
@@ -41,13 +44,9 @@ app.use(
 cloudnairyconnect();
 
 app.use("/api/v1/auth", userRoutes);
-
 app.use("/api/v1/payment", paymentRoutes);
-
 app.use("/api/v1/profile", profileRoutes);
-
 app.use("/api/v1/course", CourseRoutes);
-
 app.use("/api/v1/contact", require("./routes/ContactUs"));
 
 app.get("/", (req, res) => {
